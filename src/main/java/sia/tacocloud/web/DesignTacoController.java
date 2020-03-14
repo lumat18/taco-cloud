@@ -7,8 +7,8 @@ import org.springframework.validation.Errors;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
-import sia.tacocloud.Ingredient;
-import sia.tacocloud.Taco;
+import sia.tacocloud.domain.Ingredient;
+import sia.tacocloud.domain.Taco;
 
 import javax.validation.Valid;
 import java.util.Arrays;
