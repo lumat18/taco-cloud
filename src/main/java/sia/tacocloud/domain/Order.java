@@ -10,7 +10,9 @@ import javax.validation.constraints.Digits;
 import javax.validation.constraints.NotBlank;
 import javax.validation.constraints.Pattern;
 import java.io.Serializable;
+import java.util.ArrayList;
 import java.util.Date;
+import java.util.List;
 
 @Data
 @NoArgsConstructor
@@ -19,7 +21,7 @@ import java.util.Date;
 public class Order implements Serializable {
 
     private static final Long SERIAL_VERSION_UID = 1L;
-    
+
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long order_id;
@@ -50,6 +52,13 @@ public class Order implements Serializable {
     @Digits(integer = 3, fraction = 0, message = "Wrong CVV code")
     @Length(min = 3, message = "Wrong CVV code")
     private String ccCVV;
+
+    @ManyToMany(targetEntity = Taco.class)
+    private List<Taco> tacos = new ArrayList<>();
+
+    public void addDesign(Taco taco){
+        this.tacos.add(taco);
+    }
 
     @PrePersist
     void createdAt(){
