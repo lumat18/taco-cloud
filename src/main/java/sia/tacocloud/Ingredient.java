@@ -6,11 +6,11 @@ import lombok.RequiredArgsConstructor;
 @Data
 @RequiredArgsConstructor
 public class Ingredient {
-    private final Long id;
+    private final String id;
     private final String name;
     private final Type type;
 
-    private enum Type {
+    public enum Type {
         MEAT, SAUCE, VEGGIE, WRAP, CHEESE
     }
 }
