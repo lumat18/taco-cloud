@@ -4,6 +4,7 @@ import lombok.Data;
 import lombok.NoArgsConstructor;
 import org.hibernate.validator.constraints.CreditCardNumber;
 import org.hibernate.validator.constraints.Length;
+import sia.tacocloud.security.User;
 
 import javax.persistence.*;
 import javax.validation.constraints.Digits;
@@ -25,6 +26,9 @@ public class Order implements Serializable {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long order_id;
+
+    @ManyToOne
+    private User user;
 
     private Date createdAt;
 
